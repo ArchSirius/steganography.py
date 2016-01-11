@@ -4,12 +4,15 @@ import getopt, sys
 
 __author__ = "Samuel Rondeau"
 __copyright__ = "Copyright 2015, steganography.py"
-__credits__ = "Samuel Rondeau"
+__credits__ = "Samuel Rondeau, DrapsTV"
 __license__ = "GPL"
 __version__ = "1.0.0"
 __maintainer__ = "Samuel Rondeau"
 __email__ = "samuel.rondeau@polymtl.ca"
 __status__ = "Prototype"
+"""
+This program is based on DrapsTV's Steganography Tutorial (https://youtu.be/q3eOOMx5qoo)
+"""
 
 
 # Delimiter
@@ -110,7 +113,7 @@ def hide_message(dest_img, msg):
 		for pixel in pixels_original:
 			if nbBitsProcessed < len(binary):
 				s_hex = rgb2hex(pixel[0], pixel[1], pixel[2])
-				# TODO changer les 3 bytes au lieu de l'hex total
+				# TODO change 3 bytes instead of only 1 and support pattern
 				s_pixel = replace_last_bit(s_hex, binary[nbBitsProcessed])
 				r, g, b = hex2rgb(s_pixel)
 				pixels_new.append((r, g, b, pixel[3]))
